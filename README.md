@@ -40,12 +40,12 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 <tr><td align="left">pre-processed dataset</td>
 <td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen4.tar">download</a></td>
 <td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen1.tar">download</a></td>
-<td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen1.tar">download</a></td>
+<td align="center"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH2LI5oqWWfose-pBC3dsbaAMvRQuv0BI93njV_5wQjYx83w/viewform">download</a></td>
 </tr>
 <tr><td align="left">crc32</td>
 <td align="center"><tt>c5ec7c38</tt></td>
 <td align="center"><tt>5acab6f3</tt></td>
-<td align="center"><tt>5acab6f3</tt></td>
+<td align="center"><tt>-</tt></td>
 </tr>
 </tbody></table>
 
