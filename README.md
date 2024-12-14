@@ -53,3 +53,4 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 This project has used code from the following projects:
 - [RVT](https://github.com/uzh-rpg/RVT) for the RVT architecture implementation in Pytorch
 - [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) for the detection PAFPN/head
+- [VMamba](https://github.com/MzeroMiko/VMamba) for the VSS block
