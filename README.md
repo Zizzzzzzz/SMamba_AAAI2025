@@ -6,8 +6,8 @@ This is the official Pytorch implementation of the AAAI2025 paper [SMamba: Spars
 Step1: Same as [RVT](https://github.com/uzh-rpg/RVT)
 
 ```Bash
-conda create -y -n sfnet python=3.9 pip
-conda activate sfnet
+conda create -y -n smamba python=3.9 pip
+conda activate smamba
 conda config --set channel_priority flexible
 
 CUDA_VERSION=11.8
