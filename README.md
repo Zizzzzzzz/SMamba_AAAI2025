@@ -74,19 +74,66 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 ```Bash
 python validation.py dataset=etram dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
 use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/etram="base.yaml" \
-batch_size.eval=4 model.postprocess.confidence_threshold=0.001
+batch_size.eval=4 model.postprocess.confidence_threshold=0.01
 ```
 ### 1 Mpx
 ```Bash
 python validation.py dataset=gen4 dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
 use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/gen4="base.yaml" \
-batch_size.eval=8 model.postprocess.confidence_threshold=0.001
+batch_size.eval=8 model.postprocess.confidence_threshold=0.01
 ```
 ### Gen1
 ```Bash
 python validation.py dataset=gen1 dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
 use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/gen1="base.yaml" \
-batch_size.eval=8 model.postprocess.confidence_threshold=0.001
+batch_size.eval=8 model.postprocess.confidence_threshold=0.01
+```
+## Training
+- Set `DATA_DIR` as the path to either the eTram, 1 Mpx or Gen1 dataset directory
+- Set `GPU_IDS` to the PCI BUS IDs of the GPUs that you want to use. e.g. `GPU_IDS=[0,1]` for using GPU 0 and 1.
+  **Using a list of IDS will enable single-node multi-GPU training.**
+  Pay attention to the batch size which is defined per GPU:
+- Set `BATCH_SIZE_PER_GPU` such that the effective batch size is matching the parameters below.
+  The **effective batch size** is (batch size per gpu)*(number of GPUs).
+- If you would like to change the effective batch size, we found the following learning rate scaling to work well for 
+all models on both datasets:
+  
+  `lr = 2e-4 * sqrt(effective_batch_size/8)`.
+- The training code uses [W&B](https://wandb.ai/) for logging during the training.
+Hence, we assume that you have a W&B account.
+
+### eTram
+```Bash
+GPU_IDS=[0,1]
+BATCH_SIZE_PER_GPU=4
+TRAIN_WORKERS_PER_GPU=2
+EVAL_WORKERS_PER_GPU=2
+python train.py model=rnndet dataset=etram dataset.path=${DATA_DIR} wandb.project_name=SMamba \
+wandb.group_name=etram +experiment/etram="base.yaml" hardware.gpus=${GPU_IDS} \
+batch_size.train=${BATCH_SIZE_PER_GPU} batch_size.eval=${BATCH_SIZE_PER_GPU} \
+hardware.num_workers.train=${TRAIN_WORKERS_PER_GPU} hardware.num_workers.eval=${EVAL_WORKERS_PER_GPU}
+```
+### 1 Mpx
+```Bash
+GPU_IDS=[0,1]
+BATCH_SIZE_PER_GPU=8
+TRAIN_WORKERS_PER_GPU=2
+EVAL_WORKERS_PER_GPU=2
+python train.py model=rnndet dataset=gen4 dataset.path=${DATA_DIR} wandb.project_name=SMamba \
+wandb.group_name=1mpx +experiment/gen4="base.yaml" hardware.gpus=${GPU_IDS} \
+batch_size.train=${BATCH_SIZE_PER_GPU} batch_size.eval=${BATCH_SIZE_PER_GPU} \
+hardware.num_workers.train=${TRAIN_WORKERS_PER_GPU} hardware.num_workers.eval=${EVAL_WORKERS_PER_GPU}
+```
+### GEN1
+```Bash
+GPU_IDS=[0,1]
+BATCH_SIZE_PER_GPU=8
+TRAIN_WORKERS_PER_GPU=2
+EVAL_WORKERS_PER_GPU=2
+python train.py model=rnndet dataset=gen1 dataset.path=${DATA_DIR} wandb.project_name=SMamba \
+wandb.group_name=gen1 +experiment/gen1="base.yaml" hardware.gpus=${GPU_IDS} \
+batch_size.train=${BATCH_SIZE_PER_GPU} batch_size.eval=${BATCH_SIZE_PER_GPU} \
+hardware.num_workers.train=${TRAIN_WORKERS_PER_GPU} hardware.num_workers.eval=${EVAL_WORKERS_PER_GPU}
 ```
 
 ## Code Acknowledgments
