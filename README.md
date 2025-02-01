@@ -62,7 +62,7 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 </tbody></table>
 
 ## Evaluation
-- Set `DATA_DIR` as the path to either the 1 Mpx or Gen1 dataset directory
+- Set `DATA_DIR` as the path to either the eTram, 1 Mpx or Gen1 dataset directory
 - Set `CKPT_PATH` to the path of the *correct* checkpoint matching the choice of the model and dataset.
 - Set
   - `USE_TEST=1` to evaluate on the test set, or
