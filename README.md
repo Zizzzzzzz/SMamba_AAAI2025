@@ -56,9 +56,9 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 <th valign="bottom">Gen1</th>
   <th valign="bottom">eTram</th>
 <tr><td align="left">links</td>
-<td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen4.tar">download</a></td>
-<td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen1.tar">download</a></td>
-<td align="center"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH2LI5oqWWfose-pBC3dsbaAMvRQuv0BI93njV_5wQjYx83w/viewform">download</a></td>
+<td align="center"><a href="https://pan.baidu.com/s/1PlUUBAi0krgksNUlOlCa3g?pwd=p9as">download</a></td>
+<td align="center"><a href="https://pan.baidu.com/s/1VBpdXbOK4XSJ7cVUwNkslg?pwd=597y">download</a></td>
+<td align="center"><a href="https://pan.baidu.com/s/1_AKCRDqDos5pQNoZfcJliw?pwd=bbyc">download</a></td>
 </tbody></table>
 
 ## Evaluation
