@@ -49,6 +49,46 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 </tr>
 </tbody></table>
 
+## Pre-trained Checkpoints
+<table><tbody>
+<th valign="bottom"></th>
+<th valign="bottom">1 Mpx</th>
+<th valign="bottom">Gen1</th>
+  <th valign="bottom">eTram</th>
+<tr><td align="left">links</td>
+<td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen4.tar">download</a></td>
+<td align="center"><a href="https://download.ifi.uzh.ch/rpg/RVT/datasets/preprocessed/gen1.tar">download</a></td>
+<td align="center"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH2LI5oqWWfose-pBC3dsbaAMvRQuv0BI93njV_5wQjYx83w/viewform">download</a></td>
+</tbody></table>
+
+## Evaluation
+- Set `DATA_DIR` as the path to either the 1 Mpx or Gen1 dataset directory
+- Set `CKPT_PATH` to the path of the *correct* checkpoint matching the choice of the model and dataset.
+- Set
+  - `USE_TEST=1` to evaluate on the test set, or
+  - `USE_TEST=0` to evaluate on the validation set
+- Set `GPU_ID` to the PCI BUS ID of the GPU that you want to use. e.g. `GPU_ID=0`.
+  Only a single GPU is supported for evaluation
+  
+### eTram
+```Bash
+python validation.py dataset=etram dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
+use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/etram="base.yaml" \
+batch_size.eval=4 model.postprocess.confidence_threshold=0.001
+```
+### 1 Mpx
+```Bash
+python validation.py dataset=gen4 dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
+use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/gen4="base.yaml" \
+batch_size.eval=8 model.postprocess.confidence_threshold=0.001
+```
+### Gen1
+```Bash
+python validation.py dataset=gen1 dataset.path=${DATA_DIR} checkpoint=${CKPT_PATH} \
+use_test_set=${USE_TEST} hardware.gpus=${GPU_ID} +experiment/gen1="base.yaml" \
+batch_size.eval=8 model.postprocess.confidence_threshold=0.001
+```
+
 ## Code Acknowledgments
 This project has used code from the following projects:
 - [RVT](https://github.com/uzh-rpg/RVT) for the RVT architecture implementation in Pytorch
