@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - default
+
+model:
+  backbone:
+    embed_dim: 64
+    gaussian_kernel: 5
+    factor: 1.2
+  fpn:
+    depth: 0.67
