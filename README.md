@@ -27,7 +27,7 @@ Detectron2 is not strictly required but speeds up the evaluation.
 Step2:
 
 ```Bash
-cd kernels/selective_scan && pip install .
+cd models/kernels/selective_scan && pip install .
 ```
 ## Required Data
 To evaluate or train SMamba you will need to download the required preprocessed datasets:
