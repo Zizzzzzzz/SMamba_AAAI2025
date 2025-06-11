@@ -11,9 +11,7 @@ y = events[1]
 t = events[2]
 p = events[3]
 
-########################################################3d可视化
 # Creating figure
-
 fig = plt.figure()
 ax = plt.axes(projection ="3d")
  
