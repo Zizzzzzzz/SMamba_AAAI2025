@@ -55,10 +55,14 @@ To evaluate or train SMamba you will need to download the required preprocessed 
 <th valign="bottom">1 Mpx</th>
 <th valign="bottom">Gen1</th>
   <th valign="bottom">eTram</th>
-<tr><td align="left">links</td>
+<tr><td align="left">Baidu</td>
 <td align="center"><a href="https://pan.baidu.com/s/1PlUUBAi0krgksNUlOlCa3g?pwd=p9as">download</a></td>
 <td align="center"><a href="https://pan.baidu.com/s/1VBpdXbOK4XSJ7cVUwNkslg?pwd=597y">download</a></td>
 <td align="center"><a href="https://pan.baidu.com/s/1_AKCRDqDos5pQNoZfcJliw?pwd=bbyc">download</a></td>
+<tr><td align="left">Google Drive</td>
+<td align="center"><a href="https://drive.google.com/file/d/1Rh9rAtjbsRHOYMf4NVOZHqtb1l2p-cP2/view?usp=sharing">download</a></td>
+<td align="center"><a href="https://drive.google.com/file/d/1rplyKuNybtTg8AKQmFBoMc0B--pq3GcQ/view?usp=sharing">download</a></td>
+<td align="center"><a href="https://drive.google.com/file/d/1CWXk3-dRIwPfkLYMp-8YtYvcdEvCl4C9/view?usp=sharing">download</a></td>
 </tbody></table>
 
 ## Evaluation
